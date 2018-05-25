@@ -11,7 +11,18 @@
 		3527E40A20B84C8200442EF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527E40920B84C8200442EF5 /* ViewController.swift */; };
 		3527E40D20B84C8200442EF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3527E40B20B84C8200442EF5 /* Main.storyboard */; };
 		3527E40F20B84C8400442EF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3527E40E20B84C8400442EF5 /* Assets.xcassets */; };
-		3527E41220B84C8400442EF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3527E41020B84C8400442EF5 /* LaunchScreen.storyboard */; };
+		3527E41D20B84FDA00442EF5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3527E41B20B84FD900442EF5 /* Localizable.strings */; };
+		3527E41F20B8596500442EF5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527E41E20B8596500442EF5 /* SettingViewController.swift */; };
+		3527E42220B8597300442EF5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527E42120B8597300442EF5 /* WebViewController.swift */; };
+		3527E42D20B8597A00442EF5 /* HttpRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527E42420B8597A00442EF5 /* HttpRequestFactory.swift */; };
+		3527E42E20B8597A00442EF5 /* GetString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527E42520B8597A00442EF5 /* GetString.swift */; };
+		3527E42F20B8597A00442EF5 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527E42620B8597A00442EF5 /* ReachabilityManager.swift */; };
+		3527E43020B8597A00442EF5 /* UIView_Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527E42720B8597A00442EF5 /* UIView_Keyboard.swift */; };
+		3527E43120B8597A00442EF5 /* CommonTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527E42820B8597A00442EF5 /* CommonTool.swift */; };
+		3527E43220B8597A00442EF5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3527E42A20B8597A00442EF5 /* Reachability.m */; };
+		3527E43320B8597A00442EF5 /* SharedPreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527E42C20B8597A00442EF5 /* SharedPreferenceManager.swift */; };
+		3527E43620B8686900442EF5 /* RegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527E43520B8686900442EF5 /* RegisterData.swift */; };
+		B5CE2175E7F6FCDA371475E2 /* Pods_FishFarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771E004B0707F8B20E102E76 /* Pods_FishFarm.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,8 +31,23 @@
 		3527E40920B84C8200442EF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3527E40C20B84C8200442EF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3527E40E20B84C8400442EF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3527E41120B84C8400442EF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3527E41320B84C8400442EF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3527E41C20B84FD900442EF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3527E41E20B8596500442EF5 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		3527E42020B8596B00442EF5 /* FishFarm-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FishFarm-Bridging-Header.h"; sourceTree = "<group>"; };
+		3527E42120B8597300442EF5 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		3527E42420B8597A00442EF5 /* HttpRequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestFactory.swift; sourceTree = "<group>"; };
+		3527E42520B8597A00442EF5 /* GetString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetString.swift; sourceTree = "<group>"; };
+		3527E42620B8597A00442EF5 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		3527E42720B8597A00442EF5 /* UIView_Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_Keyboard.swift; sourceTree = "<group>"; };
+		3527E42820B8597A00442EF5 /* CommonTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTool.swift; sourceTree = "<group>"; };
+		3527E42A20B8597A00442EF5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		3527E42B20B8597A00442EF5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		3527E42C20B8597A00442EF5 /* SharedPreferenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedPreferenceManager.swift; sourceTree = "<group>"; };
+		3527E43520B8686900442EF5 /* RegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterData.swift; sourceTree = "<group>"; };
+		51C86B0DFC16E98DCD1E02B0 /* Pods-FishFarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FishFarm.release.xcconfig"; path = "Pods/Target Support Files/Pods-FishFarm/Pods-FishFarm.release.xcconfig"; sourceTree = "<group>"; };
+		771E004B0707F8B20E102E76 /* Pods_FishFarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FishFarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3AECD8FDF0F7784D09D947A /* Pods-FishFarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FishFarm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FishFarm/Pods-FishFarm.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5CE2175E7F6FCDA371475E2 /* Pods_FishFarm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +67,8 @@
 			children = (
 				3527E40620B84C8200442EF5 /* FishFarm */,
 				3527E40520B84C8200442EF5 /* Products */,
+				5D7A9266004F50841550002B /* Pods */,
+				4C5291E1097936D36F052E28 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +83,67 @@
 		3527E40620B84C8200442EF5 /* FishFarm */ = {
 			isa = PBXGroup;
 			children = (
+				3527E43420B8684B00442EF5 /* Model */,
+				3527E42320B8597A00442EF5 /* Tools */,
+				3527E42120B8597300442EF5 /* WebViewController.swift */,
+				3527E42020B8596B00442EF5 /* FishFarm-Bridging-Header.h */,
+				3527E41E20B8596500442EF5 /* SettingViewController.swift */,
+				3527E41B20B84FD900442EF5 /* Localizable.strings */,
 				3527E40720B84C8200442EF5 /* AppDelegate.swift */,
 				3527E40920B84C8200442EF5 /* ViewController.swift */,
 				3527E40B20B84C8200442EF5 /* Main.storyboard */,
 				3527E40E20B84C8400442EF5 /* Assets.xcassets */,
-				3527E41020B84C8400442EF5 /* LaunchScreen.storyboard */,
 				3527E41320B84C8400442EF5 /* Info.plist */,
 			);
 			path = FishFarm;
+			sourceTree = "<group>";
+		};
+		3527E42320B8597A00442EF5 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				3527E42420B8597A00442EF5 /* HttpRequestFactory.swift */,
+				3527E42520B8597A00442EF5 /* GetString.swift */,
+				3527E42620B8597A00442EF5 /* ReachabilityManager.swift */,
+				3527E42720B8597A00442EF5 /* UIView_Keyboard.swift */,
+				3527E42820B8597A00442EF5 /* CommonTool.swift */,
+				3527E42920B8597A00442EF5 /* Reachability */,
+				3527E42C20B8597A00442EF5 /* SharedPreferenceManager.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		3527E42920B8597A00442EF5 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				3527E42A20B8597A00442EF5 /* Reachability.m */,
+				3527E42B20B8597A00442EF5 /* Reachability.h */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		3527E43420B8684B00442EF5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3527E43520B8686900442EF5 /* RegisterData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4C5291E1097936D36F052E28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				771E004B0707F8B20E102E76 /* Pods_FishFarm.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D7A9266004F50841550002B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3AECD8FDF0F7784D09D947A /* Pods-FishFarm.debug.xcconfig */,
+				51C86B0DFC16E98DCD1E02B0 /* Pods-FishFarm.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +153,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3527E41620B84C8400442EF5 /* Build configuration list for PBXNativeTarget "FishFarm" */;
 			buildPhases = (
+				18AF4D6C2194FFEB713B5013 /* [CP] Check Pods Manifest.lock */,
 				3527E40020B84C8200442EF5 /* Sources */,
 				3527E40120B84C8200442EF5 /* Frameworks */,
 				3527E40220B84C8200442EF5 /* Resources */,
+				376227946383ECAEDDB0A775 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -104,7 +188,6 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = 3527E3FB20B84C8200442EF5;
@@ -122,7 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3527E41220B84C8400442EF5 /* LaunchScreen.storyboard in Resources */,
+				3527E41D20B84FDA00442EF5 /* Localizable.strings in Resources */,
 				3527E40F20B84C8400442EF5 /* Assets.xcassets in Resources */,
 				3527E40D20B84C8200442EF5 /* Main.storyboard in Resources */,
 			);
@@ -130,13 +213,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		18AF4D6C2194FFEB713B5013 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FishFarm-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		376227946383ECAEDDB0A775 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FishFarm/Pods-FishFarm-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FishFarm/Pods-FishFarm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3527E40020B84C8200442EF5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3527E40A20B84C8200442EF5 /* ViewController.swift in Sources */,
+				3527E43020B8597A00442EF5 /* UIView_Keyboard.swift in Sources */,
 				3527E40820B84C8200442EF5 /* AppDelegate.swift in Sources */,
+				3527E42F20B8597A00442EF5 /* ReachabilityManager.swift in Sources */,
+				3527E43220B8597A00442EF5 /* Reachability.m in Sources */,
+				3527E43120B8597A00442EF5 /* CommonTool.swift in Sources */,
+				3527E43320B8597A00442EF5 /* SharedPreferenceManager.swift in Sources */,
+				3527E41F20B8596500442EF5 /* SettingViewController.swift in Sources */,
+				3527E43620B8686900442EF5 /* RegisterData.swift in Sources */,
+				3527E42220B8597300442EF5 /* WebViewController.swift in Sources */,
+				3527E42D20B8597A00442EF5 /* HttpRequestFactory.swift in Sources */,
+				3527E42E20B8597A00442EF5 /* GetString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,12 +283,12 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		3527E41020B84C8400442EF5 /* LaunchScreen.storyboard */ = {
+		3527E41B20B84FD900442EF5 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3527E41120B84C8400442EF5 /* Base */,
+				3527E41C20B84FD900442EF5 /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -218,6 +350,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "FishFarm/FishFarm-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -271,6 +404,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "FishFarm/FishFarm-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -278,36 +412,58 @@
 		};
 		3527E41720B84C8400442EF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3AECD8FDF0F7784D09D947A /* Pods-FishFarm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NHK25S9H8U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PKHUD\"",
+				);
 				INFOPLIST_FILE = FishFarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"PKHUD\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.GoodTech.FishFarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		3527E41820B84C8400442EF5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51C86B0DFC16E98DCD1E02B0 /* Pods-FishFarm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NHK25S9H8U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PKHUD\"",
+				);
 				INFOPLIST_FILE = FishFarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"PKHUD\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.GoodTech.FishFarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
