@@ -1,4 +1,4 @@
-# Aquarium
+# FishFarm
 SettingViewController is the launch point for the app.</BR>
 And If the IP which is typed by user is available, the app will automatically switch to the next page, WebViewController. </BR>
 In addition, I classify the files which are under the project into four types as below:</BR>
