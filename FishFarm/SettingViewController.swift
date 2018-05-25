@@ -43,7 +43,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate, Reachability
                 SharedPreferenceManager.sharedInstance.saveValueForKey(.ip, value: self.ipTextField.text!)
                 let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
                 if let webView = storyBoard.instantiateViewController(withIdentifier: "WebView") as? WebViewController {
-                    webView.urlString = self.ipTextField.text!
+                    webView.urlString = HttpRequestFactory.sharedInstance.getLoginUrlString(self.ipTextField.text!)
                     webView.delegate = self
                     self.present(webView, animated: true, completion: nil)
                 }

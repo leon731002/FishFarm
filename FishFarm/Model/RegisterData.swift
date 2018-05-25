@@ -39,6 +39,11 @@ class RegisterData {
         jsonString = jsonString + "\"pushNotificationId\": \"\(self.pushNotificationId)\""
         jsonString = jsonString + "}"
         print("jsonString:\(jsonString)")
+        if let escapedString = jsonString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+            print("escapedString: \(escapedString)")
+            return escapedString
+        }
+        
         return jsonString
     }
     

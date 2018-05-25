@@ -15,119 +15,73 @@ enum HTTP_REQUEST_TYPE: String {
 
 class HttpRequestFactory {
     static let sharedInstance = HttpRequestFactory()
-    
+    static let HTTP_TIMEOUT: Double = 60
     static let HTTP_UNKONW_FAIL_CODE: Int = -9876
     static let HTTP_UNKONWSERVER_FAIL_CODE: Int = -12345
+    static let PROTOCOL_STRING: String = "http://"
+    static let PORT_STRING: String = ":10240"
     
     private let serverCommandVersion = "2"
     var web: String = ""
     var connectWithDeviceName: String = ""
     
+    //MARK: - Public Functions
     func sendHttpRequest(serverIP: String, requestType: HTTP_REQUEST_TYPE, querySource:Any, completion: @escaping (Any) -> Void) {
         
         if self.web == "" && serverIP == "" {
             completion(HttpRequestFactory.HTTP_UNKONWSERVER_FAIL_CODE)
             return
         }
-        if requestType == .login {
-            self.sendLoginActionRequest(serverIP: serverIP) {
-                (result: (String,String)) in
-                completion(result)
-            }
-        } else if requestType == .register {
-            self.sendRegisterActionRequest(serverIP: serverIP) {
-                (result: (String,String)) in
-                completion(result)
+        if requestType == .register {
+            if let jsonString = querySource as? String {
+                self.sendRegisterActionRequest(serverIP: serverIP, jsonString: jsonString) {
+                    (result: Bool) in
+                    completion(result)
+                }
             }
         }
     }
     
-    //MARK: 發送登入需求
-    private func sendLoginActionRequest(serverIP: String, completion: @escaping(_ result: (String,String)) -> Void) {
-        var deviceName = ""
-        var domainName = ""
-//        let account = WebServerManager.validAccount
-//        let password = WebServerManager.validPassword
-        
-        let myRequestString = ""
-        let request = self.getRequestForPost(serverIP: serverIP, url: "\(HTTP_REQUEST_TYPE.login.rawValue)", postString: myRequestString as NSString)
-        
-        
-        let sessionConfig = URLSessionConfiguration.default
-        sessionConfig.timeoutIntervalForRequest = 60
-        let session = URLSession(configuration: sessionConfig)
-
-        let task = session.dataTask(with: request as URLRequest, completionHandler: { (responseJson, response, error) in
-            if (error != nil) {
-                print("\(serverIP) login error:\(error!.localizedDescription)")
-            }
-            else {
-                if responseJson != nil && responseJson!.count > 0 {
-                    print("\(serverIP) login resp string:\(String(describing: NSString(data:responseJson!, encoding:String.Encoding.utf8.rawValue)))")
-                    
-                    if let jsonResult = (try? JSONSerialization.jsonObject(with: responseJson!, options:JSONSerialization.ReadingOptions.mutableContainers)) as? NSDictionary {
-                        if let value = jsonResult["deviceName"] as? String {
-                            deviceName = value
-                        }
-                        if let value = jsonResult["server"] as? String {
-                            domainName = value
-                        }
-                        completion((domainName, deviceName))
-                        return
-                    }
-                }
-            }
-            completion(("",""))
-            return
-        })
-        task.resume()
+    func getLoginUrlString(_ serverIP: String) -> String {
+        return HttpRequestFactory.PROTOCOL_STRING + serverIP + HttpRequestFactory.PORT_STRING + HTTP_REQUEST_TYPE.login.rawValue
     }
     
+    //MARK: - Private Functions
     /*
      * description: log in 
      */
-    private func sendRegisterActionRequest(serverIP: String, completion: @escaping(_ result: (String,String)) -> Void) {
-        var deviceName = ""
-        var domainName = ""
-        //        let account = WebServerManager.validAccount
-        //        let password = WebServerManager.validPassword
-        
-        let myRequestString = ""
-        let request = self.getRequestForPost(serverIP: serverIP, url: "\(HTTP_REQUEST_TYPE.login.rawValue)", postString: myRequestString as NSString)
-        
+    private func sendRegisterActionRequest(serverIP: String, jsonString: String, completion: @escaping(_ result: Bool) -> Void) {
+        let request = self.getRequestForGet(serverIP: serverIP, url: "\(HTTP_REQUEST_TYPE.register.rawValue)?json=\(jsonString)")
         
         let sessionConfig = URLSessionConfiguration.default
-        sessionConfig.timeoutIntervalForRequest = 60
+        sessionConfig.timeoutIntervalForRequest = HttpRequestFactory.HTTP_TIMEOUT
         let session = URLSession(configuration: sessionConfig)
-        
+        print("Send Register request:\(request)")
         let task = session.dataTask(with: request as URLRequest, completionHandler: { (responseJson, response, error) in
             if (error != nil) {
-                print("\(serverIP) login error:\(error!.localizedDescription)")
+                print("Send Register error:\(error!.localizedDescription)")
+                completion(false)
+                return
             }
             else {
                 if responseJson != nil && responseJson!.count > 0 {
-                    print("\(serverIP) login resp string:\(String(describing: NSString(data:responseJson!, encoding:String.Encoding.utf8.rawValue)))")
+                    print("\(serverIP) Send Register resp string:\(String(describing: NSString(data:responseJson!, encoding:String.Encoding.utf8.rawValue)))")
                     
                     if let jsonResult = (try? JSONSerialization.jsonObject(with: responseJson!, options:JSONSerialization.ReadingOptions.mutableContainers)) as? NSDictionary {
-                        if let value = jsonResult["deviceName"] as? String {
-                            deviceName = value
+                        if let value = jsonResult["result"] as? Bool {
+                            completion(value)
+                            return
                         }
-                        if let value = jsonResult["server"] as? String {
-                            domainName = value
-                        }
-                        completion((domainName, deviceName))
-                        return
                     }
                 }
             }
-            completion(("",""))
+            completion(false)
             return
         })
         task.resume()
     }
     
-    //MARK:
-    func getRequestForPost(serverIP: String, url: String, postString: NSString) -> NSMutableURLRequest {
+    private func getRequestForPost(serverIP: String, url: String, postString: NSString) -> NSMutableURLRequest {
         let request = NSMutableURLRequest(url: NSURL(string: serverIP + url)! as URL)
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
@@ -138,10 +92,9 @@ class HttpRequestFactory {
         return request
     }
     
-    func getRequestForGet(serverIP: String, url: String) -> NSMutableURLRequest {
-        let request = NSMutableURLRequest(url: NSURL(string: serverIP + url)! as URL)
+    private func getRequestForGet(serverIP: String, url: String) -> NSMutableURLRequest {
+        let request = NSMutableURLRequest(url: NSURL(string: HttpRequestFactory.PROTOCOL_STRING + serverIP + HttpRequestFactory.PORT_STRING + url)! as URL)
         request.httpMethod = "GET"
         return request
     }
-    
 }
