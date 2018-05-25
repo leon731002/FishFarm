@@ -17,6 +17,9 @@ class SettingViewController: UIViewController, UITextFieldDelegate, Reachability
     @IBOutlet weak var contentView: UIView_Keyboard!
     private let bottomOfContentView: CGFloat = 0
     
+    /*
+     *description: start to monitor the network status and keyboard event while view init.
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

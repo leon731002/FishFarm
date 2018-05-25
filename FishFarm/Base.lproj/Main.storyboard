@@ -120,27 +120,10 @@
                     <view key="view" contentMode="scaleToFill" id="Gci-zf-xxg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="網頁讀取失敗" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rg6-fV-wLf" userLabel="ErrorLabel">
-                                <rect key="frame" x="20" y="40" width="335" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="lUS-n4-lfj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" red="0.0" green="0.18518404150197629" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="mFX-hX-Mq1" firstAttribute="trailing" secondItem="Rg6-fV-wLf" secondAttribute="trailing" constant="20" id="Aa1-1a-4Bi"/>
-                            <constraint firstItem="Rg6-fV-wLf" firstAttribute="leading" secondItem="mFX-hX-Mq1" secondAttribute="leading" constant="20" id="CxX-yy-F4T"/>
-                            <constraint firstItem="Rg6-fV-wLf" firstAttribute="top" secondItem="mFX-hX-Mq1" secondAttribute="top" constant="20" id="uWg-74-xtx"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mFX-hX-Mq1"/>
                     </view>
                     <connections>
-                        <outlet property="errorLabel" destination="Rg6-fV-wLf" id="B4c-6D-DT6"/>
                         <outlet property="view" destination="Gci-zf-xxg" id="5Bf-v1-jYj"/>
                     </connections>
                 </viewController>

@@ -42,13 +42,18 @@ class HttpRequestFactory {
         }
     }
     
+    /*
+     *description: Log in WebView
+     * parameters: serverIP is IP address
+     */
     func getLoginUrlString(_ serverIP: String) -> String {
         return HttpRequestFactory.PROTOCOL_STRING + serverIP + HttpRequestFactory.PORT_STRING + HTTP_REQUEST_TYPE.login.rawValue
     }
     
     //MARK: - Private Functions
     /*
-     * description: log in 
+     *description: register device info
+     * parameters: serverIP is IP address, jsonString is DeviceInfo in Json format
      */
     private func sendRegisterActionRequest(serverIP: String, jsonString: String, completion: @escaping(_ result: Bool) -> Void) {
         let request = self.getRequestForGet(serverIP: serverIP, url: "\(HTTP_REQUEST_TYPE.register.rawValue)?json=\(jsonString)")

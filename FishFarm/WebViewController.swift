@@ -18,7 +18,6 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     private var webView: WKWebView!
     var delegate: WebViewErrorDelegate?
     var urlString: String = ""
-    @IBOutlet weak var errorLabel: UILabel!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,10 +56,6 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     }
     
     //MARK: - Private Function
-    private func initUIString() {
-        self.errorLabel.text = GetString.sharedInstance.getString("SettingViewController0007")
-    }
-    
     private func someErrorHappened(_ reason: String) {
         if self.delegate != nil {
             self.delegate!.showErrorAlertAndBackToSetting(reason)
@@ -82,6 +77,9 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         
     }
     
+    /*
+     *description: Init WebView and make it visible until loading has been done.
+     */
     private func initWebView() {
         let configuration = WKWebViewConfiguration()
         if #available(iOS 9.0, *) {
