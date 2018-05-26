@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class SettingViewController: UIViewController, UITextFieldDelegate, ReachabilityManagerDelegate, UIViewKeyboardDelegate, WebViewErrorDelegate {
 
@@ -40,8 +41,17 @@ class SettingViewController: UIViewController, UITextFieldDelegate, Reachability
     }
 
     @IBAction func connectAction(_ sender: UIButton) {
+        DispatchQueue.main.async {
+            self.view.endEditing(true)
+            HUD.allowsInteraction = false
+            HUD.show(.progress)
+        }
         self.checkIfServerIsAvailable(self.ipTextField.text!) {
             (connected: Bool) in
+            DispatchQueue.main.async {
+                HUD.hide()
+                HUD.allowsInteraction = true
+            }
             if connected {
                 SharedPreferenceManager.sharedInstance.saveValueForKey(.ip, value: self.ipTextField.text!)
                 let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
