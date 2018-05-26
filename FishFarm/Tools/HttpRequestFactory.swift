@@ -72,12 +72,14 @@ class HttpRequestFactory {
                 if responseJson != nil && responseJson!.count > 0 {
                     print("\(serverIP) Send Register resp string:\(String(describing: NSString(data:responseJson!, encoding:String.Encoding.utf8.rawValue)))")
                     
-                    if let jsonResult = (try? JSONSerialization.jsonObject(with: responseJson!, options:JSONSerialization.ReadingOptions.mutableContainers)) as? NSDictionary {
-                        if let value = jsonResult["result"] as? Bool {
-                            completion(value)
-                            return
-                        }
-                    }
+//                    if let jsonResult = (try? JSONSerialization.jsonObject(with: responseJson!, options:JSONSerialization.ReadingOptions.mutableContainers)) as? NSDictionary {
+//                        if let value = jsonResult["result"] as? Bool {
+//                            completion(value)
+//                            return
+//                        }
+//                    }
+                    completion(true)
+                    return
                 }
             }
             completion(false)
