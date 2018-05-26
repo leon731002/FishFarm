@@ -14,7 +14,7 @@
         <!--Setting View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SettingViewController" customModule="FishFarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SettingViewController" customModule="魚塭監控系統" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,14 +22,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="TP4-VI-lYi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GAH-O3-4FD" userLabel="ContentView" customClass="UIView_Keyboard" customModule="FishFarm" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GAH-O3-4FD" userLabel="ContentView" customClass="UIView_Keyboard" customModule="魚塭監控系統" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mmP-Vx-3Ui" userLabel="IPView">
-                                        <rect key="frame" x="20" y="199" width="335" height="69"/>
+                                        <rect key="frame" x="62.5" y="192" width="250" height="83"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IP Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCw-Pr-o1d" userLabel="IPLabel">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="27"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="27"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="27" id="CRD-c5-b51"/>
@@ -41,7 +41,10 @@
                                                 <size key="shadowOffset" width="-1" height="-1"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MqU-QW-VKh" userLabel="IPTextField">
-                                                <rect key="frame" x="0.0" y="39" width="335" height="30"/>
+                                                <rect key="frame" x="0.0" y="39" width="250" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="rNl-XL-gpp"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
@@ -55,7 +58,7 @@
                                             <constraint firstItem="MqU-QW-VKh" firstAttribute="width" secondItem="kCw-Pr-o1d" secondAttribute="width" id="0mJ-Oy-382"/>
                                             <constraint firstAttribute="bottom" secondItem="MqU-QW-VKh" secondAttribute="bottom" id="60p-WP-qxB"/>
                                             <constraint firstItem="MqU-QW-VKh" firstAttribute="top" secondItem="kCw-Pr-o1d" secondAttribute="bottom" constant="12" id="HK6-3u-KQE"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="SpY-la-fGK"/>
+                                            <constraint firstAttribute="width" constant="250" id="SpY-la-fGK"/>
                                             <constraint firstItem="kCw-Pr-o1d" firstAttribute="leading" secondItem="mmP-Vx-3Ui" secondAttribute="leading" id="coJ-5R-Sh7"/>
                                             <constraint firstAttribute="trailing" secondItem="kCw-Pr-o1d" secondAttribute="trailing" id="jv2-D0-asg"/>
                                             <constraint firstItem="MqU-QW-VKh" firstAttribute="leading" secondItem="mmP-Vx-3Ui" secondAttribute="leading" id="kXZ-97-cI4"/>
@@ -63,7 +66,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIB-XV-raZ">
-                                        <rect key="frame" x="77" y="288" width="221.5" height="44"/>
+                                        <rect key="frame" x="105" y="295" width="165.5" height="44"/>
                                         <color key="backgroundColor" red="0.92592020750988147" green="0.88871047430830041" blue="0.21495182806324112" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="uiz-YZ-azY"/>
@@ -79,11 +82,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="mmP-Vx-3Ui" firstAttribute="leading" secondItem="GAH-O3-4FD" secondAttribute="leading" constant="20" id="Gxi-lc-vgL"/>
+                                    <constraint firstItem="mmP-Vx-3Ui" firstAttribute="centerX" secondItem="GAH-O3-4FD" secondAttribute="centerX" id="1b3-Dj-3LU"/>
                                     <constraint firstItem="aIB-XV-raZ" firstAttribute="top" secondItem="mmP-Vx-3Ui" secondAttribute="bottom" constant="20" id="Olt-dw-J8G"/>
                                     <constraint firstItem="aIB-XV-raZ" firstAttribute="centerX" secondItem="GAH-O3-4FD" secondAttribute="centerX" id="QCS-lv-ecx"/>
                                     <constraint firstItem="aIB-XV-raZ" firstAttribute="width" secondItem="mmP-Vx-3Ui" secondAttribute="width" multiplier="0.66" id="ote-J7-IAv"/>
-                                    <constraint firstAttribute="trailing" secondItem="mmP-Vx-3Ui" secondAttribute="trailing" constant="20" id="sZv-qm-brW"/>
                                     <constraint firstItem="mmP-Vx-3Ui" firstAttribute="centerY" secondItem="GAH-O3-4FD" secondAttribute="centerY" constant="-90" id="uF2-P2-51i"/>
                                 </constraints>
                             </view>
@@ -116,7 +118,7 @@
         <!--Web View Controller-->
         <scene sceneID="R1y-8W-WXg">
             <objects>
-                <viewController storyboardIdentifier="WebView" id="i6P-Jw-Xen" customClass="WebViewController" customModule="FishFarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebView" id="i6P-Jw-Xen" customClass="WebViewController" customModule="魚塭監控系統" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gci-zf-xxg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
