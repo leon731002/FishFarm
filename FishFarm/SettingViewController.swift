@@ -41,42 +41,51 @@ class SettingViewController: UIViewController, UITextFieldDelegate, Reachability
     }
 
     @IBAction func connectAction(_ sender: UIButton) {
-        DispatchQueue.main.async {
-            self.view.endEditing(true)
-            HUD.allowsInteraction = false
-            HUD.show(.progress)
-        }
-        self.checkIfServerIsAvailable(self.ipTextField.text!) {
-            (connected: Bool) in
+        if ReachabilityManager.sharedInstance.checkIfNetworkIsAvailable() {
             DispatchQueue.main.async {
-                HUD.hide()
-                HUD.allowsInteraction = true
+                self.view.endEditing(true)
+                HUD.allowsInteraction = false
+                HUD.show(.progress)
             }
-            if connected {
-                SharedPreferenceManager.sharedInstance.saveValueForKey(.ip, value: self.ipTextField.text!)
-                let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-                if let webView = storyBoard.instantiateViewController(withIdentifier: "WebView") as? WebViewController {
-                    webView.urlString = HttpRequestFactory.sharedInstance.getLoginUrlString(self.ipTextField.text!)
-                    webView.delegate = self
-                    self.present(webView, animated: true, completion: nil)
+            self.checkIfServerIsAvailable(self.ipTextField.text!) {
+                (connected: Bool) in
+                DispatchQueue.main.async {
+                    HUD.hide()
+                    HUD.allowsInteraction = true
+                }
+                if connected {
+                    SharedPreferenceManager.sharedInstance.saveValueForKey(.ip, value: self.ipTextField.text!)
+                    let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+                    if let webView = storyBoard.instantiateViewController(withIdentifier: "WebView") as? WebViewController {
+                        webView.urlString = HttpRequestFactory.sharedInstance.getLoginUrlString(self.ipTextField.text!)
+                        webView.delegate = self
+                        DispatchQueue.main.async {
+                            self.present(webView, animated: true, completion: nil)
+                        }
+                        
+                    }
+                }
+                else {
+                    self.showErrorMessage(GetString.sharedInstance.getString("SettingViewController0003"))
                 }
             }
-            else {
-                self.showErrorMessage(GetString.sharedInstance.getString("SettingViewController0003"))
-            }
         }
+        else {
+            self.showErrorMessage(GetString.sharedInstance.getString("SettingViewController0005"))
+        }
+        
     }
     
     //MARK: - Private Functions
     private func autoConnectAnExistingServer() {
-        let ip = SharedPreferenceManager.sharedInstance.getValueByKey(.ip)
-        if ip != "" {
-            DispatchQueue.main.async {
+        DispatchQueue.main.async {
+            let ip = SharedPreferenceManager.sharedInstance.getValueByKey(.ip)
+            if ip != "" {
                 self.ipTextField.text = ip
             }
-            
             self.connectAction(UIButton())
         }
+        
     }
     private func initUIString() {
         self.ipTitleLabel.text = GetString.sharedInstance.getString("SettingViewController0001")
@@ -109,14 +118,19 @@ class SettingViewController: UIViewController, UITextFieldDelegate, Reachability
             self.dimissAllTopView() {
                 CommonTool.sharedInstance.showAlertView("", msg: reason, viewController: self, cancelTitle: GetString.sharedInstance.getString("SettingViewController0004"), buttonTitles: nil) {
                     (action: UIAlertAction) in
-                    self.clearIPSetting()
+                    if reason != GetString.sharedInstance.getString("SettingViewController0005") {
+                        self.clearIPSetting()
+                    }
+                    
                 }
             }
         }
         else {
             CommonTool.sharedInstance.showAlertView("", msg: reason, viewController: self, cancelTitle: GetString.sharedInstance.getString("SettingViewController0004"), buttonTitles: nil) {
                 (action: UIAlertAction) in
-                self.clearIPSetting()
+                if reason != GetString.sharedInstance.getString("SettingViewController0005") {
+                    self.clearIPSetting()
+                }
             }
         }
     }

@@ -66,6 +66,26 @@ class ReachabilityManager: NSObject {
         }
     }
     
+    func checkIfNetworkIsAvailable() -> Bool {
+        let netStatus: NetworkStatus = self.networkReachability.currentReachabilityStatus()
+        let connectionRequired: Bool = self.networkReachability.connectionRequired()
+        
+        var available: Bool = false
+        
+        if netStatus.rawValue == 0 {
+            available = false
+        }
+        else {
+            if connectionRequired {
+                available = false
+            }
+            else {
+                available = true
+            }
+        }
+        return available
+    }
+    
     //MARK: private functions
     private func startWatching() {
         NotificationCenter.default.addObserver(self, selector: #selector(ReachabilityManager.reachabilityChangedAction(notification:)), name: NSNotification.Name(rawValue: ReachabilityManager.reachabilityNotificationName), object: nil)
