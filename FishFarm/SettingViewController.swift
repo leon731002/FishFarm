@@ -57,22 +57,23 @@ class SettingViewController: UIViewController, UITextFieldDelegate, Reachability
                 DispatchQueue.main.async {
                     HUD.hide()
                     HUD.allowsInteraction = true
-                }
-                if connected {
-                    SharedPreferenceManager.sharedInstance.saveValueForKey(.ip, value: self.ipTextField.text!)
-                    let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-                    if let webView = storyBoard.instantiateViewController(withIdentifier: "WebView") as? WebViewController {
-                        webView.urlString = HttpRequestFactory.sharedInstance.getLoginUrlString(self.ipTextField.text!)
-                        webView.delegate = self
-                        DispatchQueue.main.async {
-                            self.present(webView, animated: true, completion: nil)
+                    if connected {
+                        SharedPreferenceManager.sharedInstance.saveValueForKey(.ip, value: self.ipTextField.text!)
+                        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+                        if let webView = storyBoard.instantiateViewController(withIdentifier: "WebView") as? WebViewController {
+                            webView.urlString = HttpRequestFactory.sharedInstance.getLoginUrlString(self.ipTextField.text!)
+                            webView.delegate = self
+                            DispatchQueue.main.async {
+                                self.present(webView, animated: true, completion: nil)
+                            }
+                            
                         }
-                        
+                    }
+                    else {
+                        self.showErrorMessage(GetString.sharedInstance.getString("SettingViewController0003"))
                     }
                 }
-                else {
-                    self.showErrorMessage(GetString.sharedInstance.getString("SettingViewController0003"))
-                }
+                
             }
         }
         else {
