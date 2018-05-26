@@ -42,6 +42,10 @@ class SettingViewController: UIViewController, UITextFieldDelegate, Reachability
     }
 
     @IBAction func connectAction(_ sender: UIButton) {
+        if self.ipTextField.text == "" {
+            self.showErrorMessage(GetString.sharedInstance.getString("SettingViewController0008"))
+            return
+        }
         if ReachabilityManager.sharedInstance.checkIfNetworkIsAvailable() {
             DispatchQueue.main.async {
                 self.view.endEditing(true)
@@ -83,8 +87,9 @@ class SettingViewController: UIViewController, UITextFieldDelegate, Reachability
             let ip = SharedPreferenceManager.sharedInstance.getValueByKey(.ip)
             if ip != "" {
                 self.ipTextField.text = ip
+                self.connectAction(UIButton())
             }
-            self.connectAction(UIButton())
+            
         }
         
     }
