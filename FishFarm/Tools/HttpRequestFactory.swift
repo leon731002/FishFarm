@@ -9,10 +9,12 @@
 import UIKit
 
 enum HTTP_REQUEST_TYPE: String {
-    case login                      = "/mobile/sensor"
+    
     #if DEBUG
-    case register = ""
+    case login                      = "/news/123"
+    case register                   = ""
     #else
+    case login                      = "/mobile/sensor"
     case register                   = "/device/signageregister"
     #endif
     

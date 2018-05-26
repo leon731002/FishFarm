@@ -72,7 +72,13 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         }
         else {
             self.webView.isHidden = true
-            self.someErrorHappened(GetString.sharedInstance.getString("SettingViewController0007"))
+            if ReachabilityManager.sharedInstance.checkIfNetworkIsAvailable() {
+                self.someErrorHappened(GetString.sharedInstance.getString("SettingViewController0007"))
+            }
+            else {
+                self.someErrorHappened(GetString.sharedInstance.getString("SettingViewController0005"))
+            }
+            
         }
         
     }

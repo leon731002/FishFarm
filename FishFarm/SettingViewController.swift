@@ -24,7 +24,8 @@ class SettingViewController: UIViewController, UITextFieldDelegate, Reachability
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        ReachabilityManager.sharedInstance.registerListener(observer: self)
+//        ReachabilityManager.sharedInstance.registerListener(observer: self)
+        
         contentView.delegate = self
         self.initUIString()
         CommonTool.sharedInstance.clipButtonCorner(self.saveButton)
@@ -167,7 +168,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate, Reachability
     
     //MARK: - WebViewErrorDelegate
     func showErrorAlertAndBackToSetting(_ reason: String) {
-        
+        self.showErrorMessage(reason)
     }
     
     //MARK: ReachabilityManagerDelegate
