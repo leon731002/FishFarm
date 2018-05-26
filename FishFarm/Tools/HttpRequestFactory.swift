@@ -10,7 +10,13 @@ import UIKit
 
 enum HTTP_REQUEST_TYPE: String {
     case login                      = "/mobile/sensor"
+    #if DEBUG
+    case register = ""
+    #else
     case register                   = "/device/signageregister"
+    #endif
+    
+    
 }
 
 class HttpRequestFactory {
@@ -19,16 +25,19 @@ class HttpRequestFactory {
     static let HTTP_UNKONW_FAIL_CODE: Int = -9876
     static let HTTP_UNKONWSERVER_FAIL_CODE: Int = -12345
     static let PROTOCOL_STRING: String = "http://"
+    #if DEBUG
+    static let PORT_STRING: String = ""
+    #else
     static let PORT_STRING: String = ":10240"
+    #endif
     
-    private let serverCommandVersion = "2"
-    var web: String = ""
+    
     var connectWithDeviceName: String = ""
     
     //MARK: - Public Functions
     func sendHttpRequest(serverIP: String, requestType: HTTP_REQUEST_TYPE, querySource:Any, completion: @escaping (Any) -> Void) {
         
-        if self.web == "" && serverIP == "" {
+        if serverIP == "" {
             completion(HttpRequestFactory.HTTP_UNKONWSERVER_FAIL_CODE)
             return
         }
