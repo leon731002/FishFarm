@@ -22,7 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert], completionHandler: {(granted, error) in
                 if (granted)
                 {
-                    UIApplication.shared.registerForRemoteNotifications()
+                    DispatchQueue.main.async {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                    
                 }
                 else{
                     //Do stuff if unsuccessful...
@@ -32,9 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         else{ //If user is not on iOS 10 use the old methods we've been using
             if application.responds(to: #selector(UIApplication.registerUserNotificationSettings(_:))) {
                 
-                let settings = UIUserNotificationSettings(types: [.alert, .badge], categories: nil)
-                application.registerUserNotificationSettings(settings)
-                application.registerForRemoteNotifications()
+                
+                DispatchQueue.main.async {
+                    let settings = UIUserNotificationSettings(types: [.alert, .badge], categories: nil)
+                    application.registerUserNotificationSettings(settings)
+                    application.registerForRemoteNotifications()
+                }
+                
             }
             
         }
@@ -45,13 +52,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if supportPush {
             self.registerPush(application)
         }
-        
         return true
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = ( deviceToken.map { String(format: "%02.2hhx", $0) }.joined() as NSString ) as String
         RegisterData.sharedInstance.setPushNotificationId(token)
+        self.autoConnectAnExistingServer()
+    }
+    
+    private func checkIfServerIsAvailable(_ serverIP: String, completion: @escaping (Bool) -> Void) {
+        HttpRequestFactory.sharedInstance.sendHttpRequest(serverIP: serverIP, requestType: .register, querySource: RegisterData.sharedInstance.getJsonString()) {
+            (result: Any) in
+            if let connected = result as? Bool {
+                completion(connected)
+            }
+            else {
+                completion(false)
+            }
+        }
+    }
+    
+    private func autoConnectAnExistingServer() {
+        DispatchQueue.main.async {
+            let ip = SharedPreferenceManager.sharedInstance.getValueByKey(.ip)
+            if ip != "" {
+                self.checkIfServerIsAvailable(ip) {
+                    (_ : Bool) in
+                    
+                }
+            }
+            
+        }
+        
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -66,6 +99,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        if supportPush {
+            self.registerPush(application)
+        }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
